@@ -1,0 +1,1 @@
+DELETE FROM public.golang_meetup_attendees;

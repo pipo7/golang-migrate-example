@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+   postgres:
+     image: postgres:13.3
+     environment:
+       POSTGRES_DB: "testdb"
+       POSTGRES_USER: "testuser"
+       POSTGRES_PASSWORD: "newpassword"
+       PGDATA: "/var/lib/postgresql/data/pgdata"
+     volumes:
+       - ../2. Init Database:/docker-entrypoint-initdb.d
+       - .:/var/lib/postgresql/data
+     ports:
+       - "5432:5432"
+     healthcheck:
+       test: ["CMD-SHELL", "pg_isready -U testuser -d testdb"]
+       interval: 15s
+       timeout: 10s
+       retries: 7
+       start_period: 12s
+     restart: unless-stopped
+     deploy:
+       resources:
+         limits:
+           cpus: '1'
+           memory: 4GB

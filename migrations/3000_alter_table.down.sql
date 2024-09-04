@@ -1,0 +1,2 @@
+ALTER TABLE golang_meetup_attendees
+DROP COLUMN session_review;
