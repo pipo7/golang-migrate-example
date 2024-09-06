@@ -1,5 +1,6 @@
 # Db Migration process
 Refer : https://pkg.go.dev/github.com/golang-migrate/migrate/v4
+How to write a migration up and down file : https://github.com/golang-migrate/migrate/blob/v4.17.1/MIGRATIONS.md 
 
 - Apply SQL DDL and DML 
 - Ensure data is valid and ETL process between source and target
